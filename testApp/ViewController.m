@@ -15,19 +15,30 @@
 @end
 
 @implementation ViewController
-@synthesize myLabel;
+@synthesize myLabel,upButton,downButton,resetButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
     count = 0;
+    [self.upButton setTitle:@"up" forState:UIControlStateNormal];
+    [self.downButton setTitle:@"down" forState:UIControlStateNormal];
+    [self.resetButton setTitle:@"reset" forState:UIControlStateNormal];
+
+    
     myLabel.text = [NSString stringWithFormat:@"%d", count];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)upButton:(id)sender {
+    count++;
+    myLabel.text = [NSString stringWithFormat:@"%d", count];
+    
 }
 
 - (IBAction)downButton:(id)sender {

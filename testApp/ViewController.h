@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)upButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *upButton;
 
 - (IBAction)downButton:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *downButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
 - (IBAction)resetButton:(id)sender;
-//
+
 
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 
