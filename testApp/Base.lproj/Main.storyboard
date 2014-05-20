@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKk-zM-cIF">
-                                <rect key="frame" x="133" y="392" width="46" height="30"/>
+                                <rect key="frame" x="137" y="314" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,12 +53,20 @@
                                     <action selector="upButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hi4-p2-iF4"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bwc-fd-dxS">
+                                <rect key="frame" x="134" y="393" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="mySwitch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="cVi-Xl-TYZ"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="downButton" destination="ich-Es-ZdI" id="JoS-Tk-ZhH"/>
                         <outlet property="myLabel" destination="m7U-bk-lZM" id="ezL-MV-mWn"/>
+                        <outlet property="mySwitch" destination="Bwc-fd-dxS" id="iRA-cP-OjY"/>
                         <outlet property="resetButton" destination="DKk-zM-cIF" id="8AI-Xx-SYP"/>
                         <outlet property="upButton" destination="O6l-68-Yeg" id="5tn-pV-FjE"/>
                     </connections>

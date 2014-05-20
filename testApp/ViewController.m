@@ -11,6 +11,7 @@
 @interface ViewController () {
     int count;
 }
+@property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 
 @end
 
@@ -54,5 +55,17 @@
 - (IBAction)resetButton:(id)sender {
     count = 0;
     myLabel.text = [NSString stringWithFormat:@"%d", count];
+}
+- (IBAction)mySwitch:(UISwitch *)sender {
+    // ここを書きました 仲松
+    if (self.mySwitch.on != YES) {
+        [self.upButton setEnabled:NO];
+        [self.downButton setEnabled:NO];
+        [self.resetButton setEnabled:NO];
+    }else {
+        self.upButton.enabled = YES;
+        self.downButton.enabled = YES;
+        self.resetButton.enabled = YES;
+    }
 }
 @end
