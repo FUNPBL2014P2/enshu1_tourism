@@ -10,19 +10,25 @@
 
 @interface ViewController () {
     int count;
+    int textFieldNumber;
+    BOOL isTextFieldNumberSeted;
 }
 @property (weak, nonatomic) IBOutlet UISwitch *mySwitch;
 
 @end
 
 @implementation ViewController
-@synthesize myLabel,upButton,downButton,resetButton;
+@synthesize myLabel,upButton,downButton,resetButton,myTextfield;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    myTextfield.delegate = self;
     
     count = 0;
+    textFieldNumber = 0;
+    isTextFieldNumberSeted = NO;
+    
     [self.upButton setTitle:@"up" forState:UIControlStateNormal];
     [self.downButton setTitle:@"down" forState:UIControlStateNormal];
     [self.resetButton setTitle:@"reset" forState:UIControlStateNormal];
@@ -37,13 +43,22 @@
 }
 
 - (IBAction)upButton:(id)sender {
-    count++;
+    if(isTextFieldNumberSeted){
+        count = count + textFieldNumber;
+    }else{
+        count++;
+    }
+    
     myLabel.text = [NSString stringWithFormat:@"%d", count];
     
 }
 
 - (IBAction)downButton:(id)sender {
-    count--;
+    if(isTextFieldNumberSeted){
+        count = count - textFieldNumber;
+    }else{
+        count--;
+    }
     
     if(count < 0){
         count = 0;
@@ -56,6 +71,9 @@
     count = 0;
     myLabel.text = [NSString stringWithFormat:@"%d", count];
 }
+
+- (IBAction)myTextfield:(id)sender {
+}
 - (IBAction)mySwitch:(UISwitch *)sender {
     // ここを書きました 仲松
     if (self.mySwitch.on != YES) {
@@ -67,5 +85,18 @@
         self.downButton.enabled = YES;
         self.resetButton.enabled = YES;
     }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [textField resignFirstResponder];
+    textFieldNumber = [textField.text intValue];
+    
+    if(textField.text.length > 0) {
+        isTextFieldNumberSeted = YES;
+    }else{
+        isTextFieldNumberSeted = NO;
+    }
+    
+    return YES;
 }
 @end

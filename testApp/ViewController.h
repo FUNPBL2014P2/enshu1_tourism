@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 - (IBAction)resetButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITextField *myTextfield;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 
